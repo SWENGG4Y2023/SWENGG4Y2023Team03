@@ -8,8 +8,8 @@
     2.3 Asset Tracking
     2.4 Search and Filter
     2.5 User Management
-    2.6 User Classes or roles
-4. Conclusion
+    2.6 User Classes or Roles
+3. Conclusion
 
 ## 1. Introduction
 
@@ -25,7 +25,7 @@ The user interface of the Asset Manager application is easy to understand and us
 
 1. Clear and concise navigation menu.
 2. Intuitive forms for adding, editing, and deleting assets.
-3. Informative and sortable tiles for displaying asset information.
+3. Informative tiles for displaying asset information.
 
 ### 2.2 Asset Management
 
