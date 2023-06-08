@@ -1,0 +1,133 @@
+@startuml Asset_Manager_App_Container_Diagram
+
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.1.0
+
+!define SPRITESURL https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v14.0/dist
+
+!define AWSPUML https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v14.0/dist
+
+!define FONTAWESOMEPUML https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.1.0
+
+!define MATERIALPUML https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.1.0
+
+!define TECHICONSPUML https://raw.githubusercontent.com/nannoq/plantuml-tech-icons/v0.9
+
+!define C4PUML https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/v2.2.0/dist
+
+!define ICONSURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.1.0
+
+!define COLOR_LIGHTBLUE #ADD8E6
+!define COLOR_LIGHTGREEN #90EE90
+!define COLOR_LIGHTYELLOW #FFFFE0
+!define COLOR_LIGHTGRAY #D3D3D3
+
+!define COLOR_APPLICATION #FFD700
+!define COLOR_DATABASE #87CEFA
+!define COLOR_WEBSERVER #F08080
+
+!define COLOR_BORDER_LIGHT #000000
+!define COLOR_BORDER_DARK #000000
+
+!define COLOR_FONT_BLACK #000000
+
+!define SPRITE_FOLDER_SPRITESURL
+
+!define LAYOUT_WITH_LEGEND true
+
+!define HIDE_STEREOTYPE_SPRITE true
+
+!define SPRITESURL https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v14.0/dist
+
+!define SPRITE_BORDER_COLOR #000000
+
+!define SPRITE_BORDER_THICKNESS 1
+
+!define SPRITE_STROKECOLOR #000000
+
+!define SPRITE_STROKE_THICKNESS 1
+
+!define SPRITE_SHADOWCOLOR #000000
+
+!define SPRITE_SHADOW_THICKNESS 1
+
+!define SPRITE_TEXTCOLOR #000000
+
+!define SPRITE_BACKGROUND_COLOR #FFFFFF
+
+!define SPRITE_LINECOLOR #000000
+
+!define SPRITE_FILL_COLOR #FFFFFF
+
+!define SPRITE_GRADIENT true
+
+!define SPRITE_SHAPE shape=component
+
+!define SPRITE_MAXSIZE 300
+
+!define SPRITE_MINSIZE 50
+
+!define SPRITE_BOUNDARYCOLOR #000000
+
+!define SPRITE_BOUNDARY_THICKNESS 1
+
+!define SPRITE_BACKGROUND_COLOR_TRANSPARENT false
+
+!define SPRITE_SCALE_FIT false
+
+!define SPRITE_PADDING 10
+
+!define SPRITE_FORCE_PADDING false
+
+!define SPRITE_LAYOUT_THRESHOLD 75
+
+!define SPRITE_LAYOUT_LIMIT 400
+
+!define SPRITE_LABEL_JUSTIFICATION center
+
+!define SPRITE_LABEL_VERTICAL_JUSTIFICATION center
+
+!define SPRITE_TEXT_STYLE plain
+
+!define SPRITE_ARROW_SIZE 30
+
+!define SPRITE_ICON_SIZE 150
+
+!define SPRITE_LAYER_NAME Component
+
+!define SPRITE_HAS_BORDER false
+
+!define SPRITE_LEGEND_COMPONENT_WIDTH 200
+
+!define SPRITE_LEGEND_ITEM_HEIGHT 30
+
+!define SPRITE_LABEL_BOX_HEIGHT 30
+
+!define SPRITE_LABEL_BOX_COLOR #FFFFFF
+
+package "Asset Manager App" {
+  [Load Balancer] as loadBalancer
+  [Web Server] as webServer
+  [Application] as application
+  [Database] as database
+  [File Storage] as fileStorage
+
+  package "Applications" {
+    [Website App] as websiteApp
+    [Mobile App] as mobileApp
+    [Desktop App] as desktopApp
+  }
+
+  loadBalancer --> webServer: HTTP
+  webServer --> application: REST API
+  application --> database: Mongo DB
+  application --> fileStorage: REST API
+
+  webServer --> websiteApp: HTTP
+  webServer --> mobileApp: HTTP
+  webServer --> desktopApp: HTTP
+  websiteApp --> database: Mongo DB
+  mobileApp --> database: Mongo DB
+  desktopApp --> database: Mongo Db
+}
+
+@enduml

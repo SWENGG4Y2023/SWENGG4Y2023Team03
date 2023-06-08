@@ -1,0 +1,41 @@
+@startuml
+!define ICONURL https://raw.githubusercontent.com/PlantUML/salt/master/src/salt
+!define LIGHTBLUE_EEEEEE #EEEEEE
+!define SKYBLUE_B9D7EA #B9D7EA
+!define LIGHTGREEN_B2D8B3 #B2D8B3
+!define LIGHTYELLOW_FBF7D5 #FBF7D5
+
+skinparam defaultTextAlignment center
+skinparam rectangle {
+    roundCorner 15
+    backgroundColor LIGHTBLUE_EEEEEE
+}
+
+skinparam component {
+    backgroundColor LIGHTGREEN_B2D8B3
+    roundCorner 10
+    borderColor black
+}
+
+skinparam database {
+    backgroundColor LIGHTYELLOW_FBF7D5
+    roundCorner 10
+    borderColor black
+}
+
+!define actor(name, description) actor name as name #lightblue
+
+actor(ITTeam, "IT Team")
+actor(DevelopersManagers, "Developers/Managers")
+
+rectangle "Asset Management System" {
+    database AssetDB as "Asset Database"
+    component AssetManager as "Asset Manager"
+}
+
+ITTeam --> AssetManager : Manages Assets
+DevelopersManagers --> AssetManager : Accesses Asset Information
+AssetManager --> AssetDB : Stores Asset Data
+
+@enduml
+
