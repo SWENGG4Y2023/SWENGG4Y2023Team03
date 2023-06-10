@@ -100,10 +100,8 @@ The Asset Manager App can be deployed in a cloud-based environment using the fol
 ### 7.1 Asset Management Process
 ![Asset Management Process](/Assignment%2002/Diagrams/Activity%20diagram.png)
 
-This activity diagram illustrates the steps involved in the asset management process, including asset creation, updating, and deletion.
-
-
-This activity diagram showcases the user authentication process, including user registration, login, and role assignment.
+This activity diagrams illustrates the steps involved in the asset management process, including asset creation, updating, and deletion.
+This activity diagrams showcases the user authentication process, including user registration, login, and role assignment.
 
 ## 8. Conclusion
 The design document provides a comprehensive overview of the Asset Manager App's architecture, database design, user interface design, integration points, and activity diagrams. It serves as a reference for developers, testers, and other stakeholders involved in the development and deployment of the application.
